@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">	
+    
+        
+         <context:annotation-config/>
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+		<property name="location">
+			<value>classpath:general.properties</value>
+		</property>
+	</bean>
+
+
+
+	<!-- Llamadas WS -->
+	<bean id="nNotaCallWS" class="mx.com.amx.yog.components.crn.ws.NNotaCallWS"></bean> 
+	<bean id="categoriasCallWS" class="mx.com.amx.yog.components.crn.ws.CategoriasCallWS"></bean> 
+	<bean id="magazinesCallWS" class="mx.com.amx.yog.components.crn.ws.MagazinesCallWS"></bean> 
+	
+	<bean id="tipoVideoCallWS" class="mx.com.amx.yog.components.crn.ws.TipoVideoCallWS"></bean> 
+	<bean id="deportesCallWS" class="mx.com.amx.yog.components.crn.ws.DeportesCallWS"></bean> 
+	
+	
+
+
+
+	<!-- Business Object   
+	<bean id="generarComponentesBO " class="mx.com.amx.unotv.components.v5.crn.bo.GenerarComponentesBO"></bean> 
+	<bean id="componentesBO " class="mx.com.amx.unotv.components.v5.crn.bo.ComponentesBO"></bean> 
+	<bean id="jsonBO " class="mx.com.amx.unotv.components.v5.crn.bo.JsonBO"></bean> 
+	-->
+	
+	
+	<!-- utils   
+	<bean id="templates" class="mx.com.amx.unotv.components.v5.crn.util.Templates"></bean> 
+	<bean id="utils" class="mx.com.amx.unotv.components.v5.crn.util.Utils"></bean> 
+	<bean id="utilsTemplates" class="mx.com.amx.unotv.components.v5.crn.util.UtilsTemplates"></bean> 
+	
+	 -->
+
+	
+	
+
+
+
+
+</beans>
