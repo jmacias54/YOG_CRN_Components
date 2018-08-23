@@ -13,6 +13,7 @@ import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import mx.com.amx.yog.components.crn.bo.exception.BOException;
 import mx.com.amx.yog.components.crn.dto.ParametrosDTO;
 import mx.com.amx.yog.components.crn.model.Nota;
 import mx.com.amx.yog.components.crn.ws.NNotaCallWS;
@@ -59,7 +60,7 @@ public class JsonBO {
 	}
 	
 	
-	public void crearJsonNota(ParametrosDTO parametros) throws JsonBOException {
+	public void crearJsonNota(ParametrosDTO parametros) throws BOException {
 		logger.debug(" --- crearJsonNota [ JsonBO ]---- ");
 		
 		try {
@@ -141,11 +142,11 @@ public class JsonBO {
 			
 		}catch (Exception e) {
 			logger.error(" --- ¡ Error Exception crearJsonNota [ JsonBO ]  ! : "+e.getMessage()+"---- ");
-			throw new JsonBOException(e.getMessage());
+			throw new BOException(e.getMessage());
 		}
 	}
 
-	private String tipoNotaClass(String tipoNota) throws JsonBOException {
+	private String tipoNotaClass(String tipoNota) throws BOException {
 
 		logger.debug(" --- tipoNotaClass [ JsonBO ] ---- ");
 
@@ -174,7 +175,7 @@ public class JsonBO {
 
 		} catch (Exception e) {
 			logger.error(" ¡ Error en tipoNotaClass ![ JsonBO ]: ", e);
-			throw new JsonBOException(e.getMessage());
+			throw new BOException(e.getMessage());
 		}
 
 		return clazz;

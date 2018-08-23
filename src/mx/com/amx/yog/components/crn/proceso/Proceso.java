@@ -8,6 +8,8 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
+import mx.com.amx.yog.components.crn.bo.GenerarComponentesBO;
+
 
 
 /**

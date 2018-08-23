@@ -8,9 +8,11 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import mx.com.amx.yog.components.crn.bo.exception.BOException;
 import mx.com.amx.yog.components.crn.dto.ParametrosDTO;
 import mx.com.amx.yog.components.crn.model.Categoria;
 import mx.com.amx.yog.components.crn.model.Magazine;
+import mx.com.amx.yog.components.crn.utils.PropertiesUtils;
 import mx.com.amx.yog.components.crn.ws.CategoriasCallWS;
 import mx.com.amx.yog.components.crn.ws.MagazinesCallWS;
 
@@ -37,7 +39,7 @@ public class GenerarComponentesBO {
 	
 
 	
-	public void writeHtml() throws GenerarComponentesBOException {
+	public void writeHtml() throws BOException {
 		logger.debug(" --- writeHtml  [ GenerarComponentesBO ]---- ");
 		
 		
@@ -48,14 +50,14 @@ public class GenerarComponentesBO {
 		try {
 			
 			
-			CargaProperties props = new CargaProperties();
+			PropertiesUtils props = new PropertiesUtils();
 			parametros = new ParametrosDTO();
-			parametros = props.obtenerPropiedades(Constants.PROPERTIES);
+			parametros = props.obtenerPropiedades();
 
 			logger.debug(" --- se obtienen las categorias---- ");
 			
-			listaCatgeoria = categoriaCallWS.findAll(parametros);
-			listaMagazine = magazineCallWS.findAll(parametros.getURL_WS_BASE());
+			listaCatgeoria = categoriasCallWS.findAll();
+			listaMagazine = magazinesCallWS.findAll();
 			
 			logger.info("==================================================================================== ");
 			logger.info("===============    creaMagazineYNotasAutomticasPorCategoria    =================== ");
@@ -119,7 +121,7 @@ public class GenerarComponentesBO {
 
 		} catch (Exception e) {
 			logger.error(" ¡ Error  writeHtml  [ GenerarComponentesBO ] !" + e.getMessage());
-			throw new GenerarComponentesBOException(e.getMessage());
+			throw new BOException(e.getMessage());
 		}
 
 	}
