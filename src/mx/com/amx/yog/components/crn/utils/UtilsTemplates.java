@@ -1,26 +1,15 @@
-/**
-
- * 
- */
+ 
 package mx.com.amx.yog.components.crn.utils;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import mx.com.amx.yog.components.crn.dto.ParametrosDTO;
-import mx.com.amx.yog.components.crn.model.Nota;
 
 
-/**
- * @author Jesus A. Macias Benitez
- *
- */
+
 public class UtilsTemplates {
 	private final Logger logger = Logger.getLogger(UtilsTemplates.class);
 
+	/*
+	//
 	// private ParametrosDTO parametros;
 	private SimpleDateFormat formatter;
 	private SimpleDateFormat df;
@@ -102,7 +91,7 @@ public class UtilsTemplates {
 			String url_externa = ((nota.getUrlExterna() == null)?"":nota.getUrlExterna() );
 			
 			if (url_externa.trim().equals("")) {
-				/* para poder obtener la friendly url con todo y base , */
+				// para poder obtener la friendly url con todo y base ,  
 				url = base+nota.getFriendlyUrl();
 			} else {
 				url = nota.getUrlExterna();
@@ -160,7 +149,7 @@ public class UtilsTemplates {
 			String url_externa = ((nota.getUrlExterna() == null)?"":nota.getUrlExterna() );
 			
 			if (url_externa.trim().equals("")) {
-				/* para poder obtener la friendly url con todo y base , */
+				// para poder obtener la friendly url con todo y base ,  
 				url = base+nota.getFriendlyUrl();
 			} else {
 				url = nota.getUrlExterna();
@@ -226,7 +215,7 @@ public class UtilsTemplates {
 			String url_externa = ((nota.getUrlExterna() == null)?"":nota.getUrlExterna() );
 			
 			if (url_externa.trim().equals("")) {
-				/* para poder obtener la friendly url con todo y base , */
+				// para poder obtener la friendly url con todo y base ,  
 				url = base+nota.getFriendlyUrl();
 			} else {
 				url = nota.getUrlExterna();
@@ -294,7 +283,7 @@ public class UtilsTemplates {
 			String url_externa = ((nota.getUrlExterna() == null)?"":nota.getUrlExterna() );
 			
 			if (url_externa.trim().equals("")) {
-				/* para poder obtener la friendly url con todo y base , */
+				// para poder obtener la friendly url con todo y base , 
 				url = base+nota.getFriendlyUrl();
 			} else {
 				url = nota.getUrlExterna();
@@ -463,18 +452,18 @@ public class UtilsTemplates {
 		try {
 
 			logger.debug(" --- [ TIPO_NOTA  : " + nota.getTipoNota() + " ] --- ");
-			/* valida si el tipo de nota es video o multimedia */
+			// valida si el tipo de nota es video o multimedia 
 			if (nota.getTipoNota().equals(Constants.TIPO_NOTA_VIDEO) || nota.getTipoNota().equals(Constants.TIPO_NOTA_MULTIMEDIA)) {
 				logger.debug(" --- VIDEO y/o MULTIMEDIA --- ");
 				
 				bufferTipoNota.append("				 <i class=\"far fa-play\"></i> ");
 
-				/* valida si el tipo de nota es galeria */
+				// valida si el tipo de nota es galeria 
 			} else if (nota.getTipoNota().equals(Constants.TIPO_NOTA_GALERIA)) {
 				logger.debug(" --- GALERIA--- ");
 				bufferTipoNota.append("				 <i class=\"far fa-images\"></i> ");
 
-				/* valida si el tipo de nota es infografia */
+				// valida si el tipo de nota es infografia 
 			} else if (nota.getTipoNota().equals(Constants.TIPO_NOTA_INFOGRAFIA)) {
 				logger.debug(" --- INFOGRAFIA --- ");
 			
@@ -488,4 +477,6 @@ public class UtilsTemplates {
 		return bufferTipoNota.toString();
 	}
 
+	*/
+	 
 }

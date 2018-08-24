@@ -30,19 +30,19 @@
 
 
 
-	<!-- Business Object   
-	<bean id="generarComponentesBO " class="mx.com.amx.unotv.components.v5.crn.bo.GenerarComponentesBO"></bean> 
-	<bean id="componentesBO " class="mx.com.amx.unotv.components.v5.crn.bo.ComponentesBO"></bean> 
-	<bean id="jsonBO " class="mx.com.amx.unotv.components.v5.crn.bo.JsonBO"></bean> 
-	-->
+	<!-- Business Object   -->
+	<bean id="generarComponentesBO " class="mx.com.amx.yog.components.crn.bo.GenerarComponentesBO"></bean> 
+	<bean id="componentesBO " class="mx.com.amx.yog.components.crn.bo.ComponentesBO"></bean> 
+	<bean id="jsonBO " class="mx.com.amx.yog.components.crn.bo.JsonBO"></bean> 
 	
 	
-	<!-- utils   
-	<bean id="templates" class="mx.com.amx.unotv.components.v5.crn.util.Templates"></bean> 
-	<bean id="utils" class="mx.com.amx.unotv.components.v5.crn.util.Utils"></bean> 
-	<bean id="utilsTemplates" class="mx.com.amx.unotv.components.v5.crn.util.UtilsTemplates"></bean> 
 	
-	 -->
+ 
+	<bean id="templates" class="mx.com.amx.yog.components.crn.utils.Templates"></bean> 
+	<bean id="utils" class="mx.com.amx.yog.components.crn.utils.Utils"></bean> 
+	<bean id="utilsTemplates" class="mx.com.amx.yog.components.crn.utils.UtilsTemplates"></bean> 
+	
+
 
 	
 	

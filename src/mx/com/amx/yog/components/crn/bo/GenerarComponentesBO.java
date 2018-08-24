@@ -11,10 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import mx.com.amx.yog.components.crn.bo.exception.BOException;
 import mx.com.amx.yog.components.crn.dto.ParametrosDTO;
 import mx.com.amx.yog.components.crn.model.Categoria;
+import mx.com.amx.yog.components.crn.model.Deporte;
 import mx.com.amx.yog.components.crn.model.Magazine;
+import mx.com.amx.yog.components.crn.model.TipoVideo;
 import mx.com.amx.yog.components.crn.utils.PropertiesUtils;
 import mx.com.amx.yog.components.crn.ws.CategoriasCallWS;
+import mx.com.amx.yog.components.crn.ws.DeportesCallWS;
 import mx.com.amx.yog.components.crn.ws.MagazinesCallWS;
+import mx.com.amx.yog.components.crn.ws.TipoVideoCallWS;
 
 
 
@@ -27,11 +31,17 @@ public class GenerarComponentesBO {
 
 	@Autowired
 	private CategoriasCallWS categoriasCallWS;
-	@Autowired 
-	private ComponentesBO componentesBO;
+	
+	// @Autowired private ComponentesBO componentesBO;
 	
 	@Autowired
 	private MagazinesCallWS magazinesCallWS;
+	
+	@Autowired
+	private DeportesCallWS deportesCallWS;
+	
+	@Autowired
+	private TipoVideoCallWS tipoVideoCallWS;
 	
 	@Autowired
 	private JsonBO jsonBO;
@@ -46,6 +56,8 @@ public class GenerarComponentesBO {
 
 		List<Categoria> listaCatgeoria = null;
 		List<Magazine> listaMagazine = null;
+		List<TipoVideo> listaTipoVideo = null;
+		List<Deporte> listaDeportes = null;
 		 ParametrosDTO parametros = null;
 		try {
 			
@@ -58,65 +70,32 @@ public class GenerarComponentesBO {
 			
 			listaCatgeoria = categoriasCallWS.findAll();
 			listaMagazine = magazinesCallWS.findAll();
+			listaTipoVideo = tipoVideoCallWS.findAll();
+			listaDeportes = deportesCallWS.findAll();
+			
+			
 			
 			logger.info("==================================================================================== ");
-			logger.info("===============    creaMagazineYNotasAutomticasPorCategoria    =================== ");
+			logger.info("===============    crear json categoria    =================== ");
 			logger.info("==================================================================================== ");
 			
+			if(listaCatgeoria != null && listaCatgeoria.size() > 0)
+			jsonBO.crearJsonPorCategoria(listaCatgeoria, parametros);
 			
-			//Automaticas
-			componentesBO.creaMagazineYNotasAutomticasPorCategoria(listaCatgeoria,parametros);
+			logger.info("==================================================================================== ");
+			logger.info("===============    crear json deportes    =================== ");
+			logger.info("==================================================================================== ");
+			if(listaDeportes != null && listaDeportes.size() > 0)
+			jsonBO.crearJsonPorDeporte(listaDeportes, parametros);
+
+			logger.info("==================================================================================== ");
+			logger.info("===============    crear json tipo video    =================== ");
+			logger.info("==================================================================================== ");
+			if(listaTipoVideo != null && listaTipoVideo.size() > 0)
+			jsonBO.crearJsonPorTipoVideo(listaTipoVideo, parametros);
+				   
 
 			
-			logger.info("================================================================== ");
-			logger.info("===============    Crear magazines     =================== ");
-			logger.info("================================================================== ");
-			//Crear magazines 
-			componentesBO.creaMagazine(listaMagazine, parametros);
-			
-			logger.info("================================================================== ");
-			logger.info("===============    Manuales    =================== ");
-			logger.info("================================================================== ");
-			//Manuales
-			componentesBO.creaNotasCategoria(parametros);
-			componentesBO.creaNotasSeccion(parametros);
-			componentesBO.creaNotasTags(parametros);
-			componentesBO.creaNotasSeccioTags(parametros);
-			
-			logger.info("================================================================== ");
-			logger.info("===============    creaMagazinesVertical    =================== ");
-			logger.info("================================================================== ");
-			//Magazine vertical
-			componentesBO.creaMagazinesVertical(parametros);
-			
-			logger.info("================================================================== ");
-			logger.info("===============    HOME    =================== ");
-			logger.info("================================================================== ");
-			
-			//HOME
-			componentesBO.creaHome(parametros.getHome());
-			
-			logger.info("================================================================== ");
-			logger.info("===============    elecciones    =================== ");
-			logger.info("================================================================== ");
-			//elecciones
-			componentesBO.creaDebates(parametros);
-			componentesBO.creaPropuestas(parametros);
-			componentesBO.creaEncuestas(parametros);
-			
-			
-			logger.info("================================================================== ");
-			logger.info("===============    crearJsonNota    =================== ");
-			logger.info("================================================================== ");
-			
-			// JSON 
-			jsonBO.crearJsonNota(parametros);
-			
-			
-			logger.info("================================================================== ");
-			logger.info("===============    creaNotasTipoSeccionTags    =================== ");
-			logger.info("================================================================== ");
-			componentesBO.creaNotasTipoSeccionTags(parametros);
 			
 
 		} catch (Exception e) {

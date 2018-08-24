@@ -3,13 +3,8 @@
  */
 package mx.com.amx.yog.components.crn.utils;
 
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import mx.com.amx.yog.components.crn.dto.ParametrosDTO;
-import mx.com.amx.yog.components.crn.model.Nota;
 
 
 
@@ -29,7 +24,7 @@ public class Templates {
 
 
 	
-	
+	/*
 	public void crearMagazineVertical(List<Nota> lista , String title , String idMagazine , ParametrosDTO parametros) {
 		logger.debug(" --- crearMagazineVertical [ Templates ] ---- ");
 		if (lista != null)
@@ -72,12 +67,12 @@ public class Templates {
 			String path = parametros.getRutaArchivos() + folder;
 			
 			
-			/* si la carpeta se creo bien o ya esta creada */
+			
 			if (utils.createFolders(path)) {
 
 				String file = path + idMagazine + parametros.getHtmlFileExtension();
 				
-				/* se crean los archivos HTML */
+				
 				success = utils.writeHTML(file, templateMagazineVertical);
 				logger.info("Genero HTML : " + file + ": status :" + success);
 			}
@@ -88,6 +83,7 @@ public class Templates {
 
 		logger.debug(" --- FIN crearMagazineVertical [ Templates ] ---- ");
 	}
+	
 
 	public void crearMagazine(List<Nota> lista , String type , String html_name , ParametrosDTO parametros ) {
 		logger.debug(" --- crearMagazine [ Templates ] ---- ");
@@ -165,12 +161,10 @@ public class Templates {
 			String path = parametros.getRutaArchivos() + folder;
 			
 			
-			/* si la carpeta se creo bien o ya esta creada */
 			if (utils.createFolders(path)) {
 				
 				String file = path + name + parametros.getHtmlFileExtension();
 				
-				/* se crean los archivos HTML */
 				success = utils.writeHTML(file, templateMagazine);
 				logger.info("Genero HTML : " + file + ": status :" + success);
 			}
@@ -228,12 +222,10 @@ public class Templates {
 			name = html_name  + parametros.getHtmlFileExtension();
 			String path = parametros.getRutaArchivos() + folder;
 
-			/* si la carpeta se creo bien o ya esta creada */
 			if (utils.createFolders(path)) {
 
 				String file = path + name;
 
-				/* se crean los archivos HTML */
 				success = utils.writeHTML(file, template);
 				logger.info("Genero HTML : " + file + ": status :" + success);
 			}
@@ -320,7 +312,6 @@ public class Templates {
 			
 			String path = parametros.getRutaArchivos() + folder;
 			
-			/* si la carpeta se creo bien o ya esta creada */
 			if (utils.createFolders(path)) {
 
 				
@@ -328,7 +319,6 @@ public class Templates {
 				
 				String file = path+ name;
 				
-				/* se crean los archivos HTML */
 				success = utils.writeHTML(file, templateMagazine);
 				logger.info("Genero HTML : " + file + ": status :" + success);
 			}
@@ -366,11 +356,9 @@ public class Templates {
 			template = template.toString().replace(parametros.getConstantContent(), buffer.toString());
 			String path = parametros.getRutaArchivos() + parametros.getFolderNotasTags();
 
-			/* si la carpeta se creo bien o ya esta creada */
 			if (utils.createFolders(path)) {
 
 				String file = path + name;
-				/* se crean los archivos HTML */
 				success = utils.writeHTML(file, template);
 				logger.info("Genero HTML : " + file + ": status :" + success);
 			}
@@ -382,4 +370,5 @@ public class Templates {
 		logger.debug(" --- FIN crearNotasTags [ Templates ] ---- ");
 	}
 
+	*/
 }
